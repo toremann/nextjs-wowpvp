@@ -14,25 +14,25 @@ export default function Players({ isConnected, players }) {
       <main className={styles.main}>
         <h1 className={styles.title}>PVP ratings</h1>
         {isConnected ? (
-          <h2 className={styles.subtitle}>You are connected to MongoDB</h2>
-        ) : (
-          <h2 className={styles.subtitle}>
-            You are NOT connected to MongoDB. Check the <code>README.md</code>{" "}
-            for instructions.
-          </h2>
-        )}
-
-        <div className={styles.grid}>
-          <Stats players={players} />
-          {players
-            .filter((players) => players.rating2v2 > 0)
-            .sort((a, b) => (a.rating2v2 < b.rating2v2 ? 1 : -1))
-            .map((player) => (
-              <div className={styles.card} key={player.player}>
-                <Player player={player} />
+          <div className={styles.grid}>
+            <h2 className={styles.subtitle}>You are connected to MongoDB</h2>
+            <div>
+              <div className={styles.card}>
+                <Stats players={players} />
               </div>
-            ))}
-        </div>
+              {players
+                .filter((players) => players.rating2v2 > 0)
+                .sort((a, b) => (a.rating2v2 < b.rating2v2 ? 1 : -1))
+                .map((player) => (
+                  <div className={styles.card} key={player.player}>
+                    <Player player={player} />
+                  </div>
+                ))}
+            </div>
+          </div>
+        ) : (
+          <h2 className={styles.subtitle}>Database error.</h2>
+        )}
       </main>
     </div>
   );

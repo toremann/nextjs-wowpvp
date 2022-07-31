@@ -1,7 +1,6 @@
 import styles from "../styles/Home.module.css";
 
 function Stats({ players }) {
-  console.log(players);
   const totalPlayers = players.length;
 
   const totalWins2v2 = players.reduce(function (acc, obj) {
@@ -16,15 +15,15 @@ function Stats({ players }) {
     (Number(totalWins2v2) / (Number(totalWins2v2) + Number(totalLoss2v2))) *
     100;
 
-  console.log(totalWinRatio2v2);
-
   return (
-    <div className={styles.card}>
-      Active characters: {totalPlayers} <br />
-      Total games won 2v2: {totalWins2v2} <br />
-      Total games lost 2v2: {totalLoss2v2} <br />
-      Overall win ratio 2v2: {totalWinRatio2v2.toFixed(0)}%
-    </div>
+    <>
+      <b>Active characters:</b> {totalPlayers} <br />
+      <b>Total games won 2v2:</b> {totalWins2v2} <br />
+      <b>Total games lost 2v2:</b> {totalLoss2v2} <br />
+      <b>Total games played 2v2:</b> {totalWins2v2 + totalLoss2v2} <br />
+      <b>Overall win ratio 2v2:</b> {totalWinRatio2v2.toFixed(0)}% <br />
+      <b>Updated:</b> {new Date(players[1].updatedAt).toLocaleString("en-GB")}
+    </>
   );
 }
 
