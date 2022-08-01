@@ -13,13 +13,16 @@ export default function Players({ isConnected, players }) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>PVP ratings</h1>
+        <div className={styles.main__split}>
+          <div className={styles.left__split}>
+            <div className={styles.card}>
+              <Stats players={players} isConnected={isConnected}/>
+            </div>
+          </div>
+
         {isConnected ? (
-          <div className={styles.grid}>
-            <h2 className={styles.subtitle}>You are connected to MongoDB</h2>
-            <div>
-              <div className={styles.card}>
-                <Stats players={players} />
-              </div>
+          <div className={styles.right__split}>
+            <div className={styles.grid}>
               {players
                 .filter((players) => players.rating2v2 > 0)
                 .sort((a, b) => (a.rating2v2 < b.rating2v2 ? 1 : -1))
@@ -33,6 +36,7 @@ export default function Players({ isConnected, players }) {
         ) : (
           <h2 className={styles.subtitle}>Database error.</h2>
         )}
+        </div>
       </main>
     </div>
   );
