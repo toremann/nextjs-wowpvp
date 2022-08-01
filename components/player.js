@@ -1,4 +1,5 @@
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
 
 function Player({ player }) {
   const classes = {
@@ -15,6 +16,20 @@ function Player({ player }) {
     11: <text style={{ color: "orange" }}>Druid</text>,
   };
 
+  const classIcons = {
+    1: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-warrior-vector.f346a16523efa8fc66ba0c72b3d8d9b5.png", //Warrior
+    2: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-paladin-vector.9665329a4454328f61097d121f0939df.png", //Paladin
+    3: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-hunter-vector.095639e31b058f024eaf9fa96758cfdb.png", //Hunter
+    4: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-rogue-vector.cc2ea8017b7df7c6d19f37640f627485.png", //Rogue
+    5: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-priest-vector.d7f94632cf32cb6d4e332549f7c8347a.png", //Priest
+    6: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
+    7: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png", //Shaman
+    8: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
+    9: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
+    10: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
+    11: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-druid-vector.43960391b0b03a656707fe7b9873a526.png", //Druid
+  };
+
   const played2v2 = player.wins2v2 + player.loss2v2;
   const winrate2v2 =
     (Number(player.wins2v2) /
@@ -27,54 +42,88 @@ function Player({ player }) {
       (Number(player.wins3v3) + Number(player.loss3v3))) *
     100;
 
+  const playedrbg = player.winsrbg + player.lossrbg;
+  const winraterbg =
+    (Number(player.winsrbg) /
+      (Number(player.winsrbg) + Number(player.lossrbg))) *
+    100;
+
   const checkNan = isNaN(winrate3v3);
 
   return (
     <>
-      <h3>
-        {player.player} - {player.realm} <br /> {classes[player.class]} -{" "}
-        <b>ilvl:</b> {player.ilvl}
-      </h3>
+      <div className={styles.card__top}>
+        <div className={styles.card__playername}>
+          <h3>
+            {player.player} - {player.realm} <br /> {classes[player.class]} -{" "}
+            <b>ilvl:</b> {player.ilvl}
+          </h3>
+        </div>
+        <div className={styles.card__icon}>
+          <Image src={classIcons[player.class]} width={64} height={64} />
+        </div>
+      </div>
       <div className={styles.stats}>
-        <div>
+        <div className={styles.stats__divs}>
           <p>
             <b>2v2:</b>
           </p>
           <p>
-            <b>rating:</b> {player.rating2v2}
+            <b>Rating:</b> {player.rating2v2}
           </p>
           <p>
-            <b>wins</b> {player.wins2v2}
+            <b>Wins</b> {player.wins2v2}
           </p>
           <p>
-            <b>loss:</b> {player.loss2v2}
+            <b>Loss:</b> {player.loss2v2}
           </p>
           <p>
-            <b>games played:</b> {played2v2}
+            <b>Games:</b> {played2v2}
           </p>
           <p>
-            <b>ratio:</b> {winrate2v2.toFixed(0)}%
+            <b>Ratio:</b> {winrate2v2.toFixed(0)}%
           </p>
         </div>
-        <div>
+        <div className={styles.stats__divs}>
           <p>
             <b>3v3:</b>
           </p>
           <p>
-            <b>rating:</b> {player.rating3v3}
+            <b>Rating:</b> {player.rating3v3}
           </p>
           <p>
-            <b>wins</b> {player.wins3v3}
+            <b>Wins</b> {player.wins3v3}
           </p>
           <p>
-            <b>loss:</b> {player.loss3v3}
+            <b>Loss:</b> {player.loss3v3}
           </p>
           <p>
-            <b>games played:</b> {played3v3}
+            <b>Games:</b> {played3v3}
           </p>
           <p>
-            <b>ratio:</b>{" "}
+            <b>Ratio:</b>{" "}
             {checkNan ? <text>0</text> : <text>{winrate3v3.toFixed(0)}%</text>}
+          </p>
+        </div>
+        <div className={styles.stats__divs}>
+          <p>
+            <b>RBG:</b>
+          </p>
+          <p>
+            <b>Rating:</b> {player.ratingrbg}
+          </p>
+          <p>
+            <b>Wins</b> {player.winsrbg}
+          </p>
+          <p>
+            <b>Loss:</b> {player.lossrbg}
+          </p>
+          <p>
+            <b>Games:</b> {playedrbg}
+          </p>
+          <p>
+            <b>Ratio:</b>{" "}
+            {checkNan ? <text>0</text> : <text>{winraterbg.toFixed(0)}%</text>}
           </p>
         </div>
       </div>
