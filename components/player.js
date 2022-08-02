@@ -48,7 +48,11 @@ function Player({ player }) {
       (Number(player.winsrbg) + Number(player.lossrbg))) *
     100;
 
-  const checkNan = isNaN(winrate3v3);
+  const checkNan2v2 = isNaN(winrate2v2);
+
+  const checkNan3v3 = isNaN(winrate3v3);
+
+  const checkNanRBG = isNaN(winraterbg);
 
   return (
     <>
@@ -81,7 +85,7 @@ function Player({ player }) {
             <b>Games:</b> {played2v2}
           </p>
           <p>
-            <b>Ratio:</b> {winrate2v2.toFixed(0)}%
+            <b>Ratio:</b> {checkNan2v2 ? <text>0</text> : <text>{winrate2v2.toFixed(0)}%</text>}
           </p>
         </div>
         <div className={styles.stats__divs}>
@@ -102,7 +106,7 @@ function Player({ player }) {
           </p>
           <p>
             <b>Ratio:</b>{" "}
-            {checkNan ? <text>0</text> : <text>{winrate3v3.toFixed(0)}%</text>}
+            {checkNan3v3 ? <text>0</text> : <text>{winrate3v3.toFixed(0)}%</text>}
           </p>
         </div>
         <div className={styles.stats__divs}>
@@ -123,7 +127,7 @@ function Player({ player }) {
           </p>
           <p>
             <b>Ratio:</b>{" "}
-            {checkNan ? <text>0</text> : <text>{winraterbg.toFixed(0)}%</text>}
+            {checkNanRBG ? <text>0</text> : <text>{winraterbg.toFixed(0)}%</text>}
           </p>
         </div>
       </div>
