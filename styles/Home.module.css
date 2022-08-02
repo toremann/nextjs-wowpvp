@@ -76,6 +76,60 @@
     font-size: 2rem;
   }
 
+  .sort__buttons{
+    margin: 10px 10px 10px 10px;
+    display: block;
+  }
+
+  .sort__buttons button{
+  appearance: none;
+  margin: 10px;
+  backface-visibility: hidden;
+  background-color: #5c5c5c;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.sort__buttons button:hover {
+  background-color: #959595;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.sort__buttons button:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.sort__buttons button:hover {
+  box-shadow: 0 6px 12px #d0d0d0
+}
+
+
   .description {
     line-height: 1.5;
     font-size: 1.5rem;
@@ -155,5 +209,9 @@
 
     .stats__divs {
       padding-top: 10px;
+    }
+
+    .sort__buttons {
+      display: grid;
     }
   }

@@ -3,10 +3,31 @@ import styles from "../styles/Home.module.css";
 import Player from "../components/player";
 import Stats from "../components/stats";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Players({ isConnected, players }) {
-  const [filter, setFilter] = useState();
+  const [data, setData] = useState([]);
+  const [sortType, setSortType] = useState("rating2v2");
+
+  useEffect(() => {
+    const sortArray = (type) => {
+      const types = {
+        rating2v2: "rating2v2",
+        rating3v3: "rating3v3",
+        ratingrbg: "ratingrbg",
+      };
+      const sortProperty = types[type];
+      const sorted = [...players].sort((a, b) =>
+        a[sortProperty] < b[sortProperty] ? 1 : -1
+      );
+      setData(sorted);
+      console.log(sorted);
+    };
+
+    sortArray(sortType);
+  }, [sortType]);
+
+  console.log(sortType);
 
   return (
     <div className={styles.container}>
@@ -16,6 +37,26 @@ export default function Players({ isConnected, players }) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>PVP ratings</h1>
+        <div className={styles.sort__buttons}>
+          <button
+            value="rating2v2"
+            onClick={(e) => setSortType(e.target.value)}
+          >
+            Sort by 2v2
+          </button>
+          <button
+            value="rating3v3"
+            onClick={(e) => setSortType(e.target.value)}
+          >
+            Sort by 3v3
+          </button>
+          <button
+            value="ratingrbg"
+            onClick={(e) => setSortType(e.target.value)}
+          >
+            Sort by RBG
+          </button>
+        </div>
         <div className={styles.main__split}>
           <div className={styles.left__split}>
             <div className={styles.card}>
@@ -26,9 +67,8 @@ export default function Players({ isConnected, players }) {
           {isConnected ? (
             <div className={styles.right__split}>
               <div className={styles.grid}>
-                {players
+                {data
                   .filter((players) => players.rating2v2 > 0)
-                  .sort((a, b) => (a.rating2v2 < b.rating2v2 ? 1 : -1))
                   .map((player) => (
                     <div className={styles.card} key={player.player}>
                       <Player player={player} />
