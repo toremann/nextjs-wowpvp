@@ -2,6 +2,7 @@ import { connectToDatabase } from "../util/mongodb";
 import styles from "../styles/Home.module.css";
 import Player from "../components/player";
 import Stats from "../components/stats";
+import Graph from "../components/graph";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 
@@ -59,7 +60,7 @@ export default function Players({ isConnected, players }) {
         </div>
         <div className={styles.main__split}>
           <div className={styles.left__split}>
-            <div className={styles.card}>
+            <div className={styles.card__totals}>
               <Stats players={players} isConnected={isConnected} />
             </div>
           </div>
@@ -69,9 +70,10 @@ export default function Players({ isConnected, players }) {
               <div className={styles.grid}>
                 {data
                   .filter((players) => players.rating2v2 > 0)
-                  .map((player) => (
-                    <div className={styles.card} key={player.player}>
+                  .map((player, index) => (
+                    <div className={styles.card} key={index}>
                       <Player player={player} />
+                      <Graph player={player} />
                     </div>
                   ))}
               </div>

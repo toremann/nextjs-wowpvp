@@ -27,6 +27,18 @@ function Stats({ players, isConnected }) {
     (Number(totalWins3v3) / (Number(totalWins3v3) + Number(totalLoss3v3))) *
     100;
 
+  const totalWinsRbg = players.reduce(function (acc, obj) {
+    return acc + obj.winsrbg;
+  }, 0);
+
+  const totalLossRbg = players.reduce(function (acc, obj) {
+    return acc + obj.lossrbg;
+  }, 0);
+
+  const totalWinRatioRbg =
+    (Number(totalWinsRbg) / (Number(totalWinsRbg) + Number(totalLossRbg))) *
+    100;
+
   return (
     <>
       <h3>TOTALS</h3>
@@ -43,6 +55,12 @@ function Stats({ players, isConnected }) {
         <b>Loss:</b> {totalLoss3v3} <br />
         <b>Games:</b> {totalWins3v3 + totalLoss3v3} <br />
         <b>Ratio:</b> {totalWinRatio3v3.toFixed(0)}% <br />
+        <br />
+        <b>TOTAL RBG:</b> <br />
+        <b>Wins:</b> {totalWinsRbg} <br />
+        <b>Loss:</b> {totalLossRbg} <br />
+        <b>Games:</b> {totalWinsRbg + totalLossRbg} <br />
+        <b>Ratio:</b> {totalWinRatioRbg.toFixed(0)}% <br />
         <br />
         <b>Active characters:</b> {totalPlayers} <br />
         <b>Updated:</b> {new Date(players[1].updatedAt).toLocaleString("en-GB")}
