@@ -64,7 +64,7 @@ function Player({ player }) {
           </h3>
         </div>
         <div className={styles.card__icon}>
-          <Image src={classIcons[player.class]} width={64} height={64} />
+          <Image src={classIcons[player.class]} width={40} height={40} />
         </div>
       </div>
       <div className={styles.stats}>
@@ -85,7 +85,12 @@ function Player({ player }) {
             <b>Games:</b> {played2v2}
           </p>
           <p>
-            <b>Ratio:</b> {checkNan2v2 ? <text>0</text> : <text>{winrate2v2.toFixed(0)}%</text>}
+            <b>Ratio:</b>{" "}
+            {checkNan2v2 ? (
+              <text>0</text>
+            ) : (
+              <text>{winrate2v2.toFixed(0)}%</text>
+            )}
           </p>
         </div>
         <div className={styles.stats__divs}>
@@ -106,7 +111,11 @@ function Player({ player }) {
           </p>
           <p>
             <b>Ratio:</b>{" "}
-            {checkNan3v3 ? <text>0</text> : <text>{winrate3v3.toFixed(0)}%</text>}
+            {checkNan3v3 ? (
+              <text>0</text>
+            ) : (
+              <text>{winrate3v3.toFixed(0)}%</text>
+            )}
           </p>
         </div>
         <div className={styles.stats__divs}>
@@ -127,7 +136,11 @@ function Player({ player }) {
           </p>
           <p>
             <b>Ratio:</b>{" "}
-            {checkNanRBG ? <text>0</text> : <text>{winraterbg.toFixed(0)}%</text>}
+            {checkNanRBG ? (
+              <text>0</text>
+            ) : (
+              <text>{winraterbg.toFixed(0)}%</text>
+            )}
           </p>
         </div>
       </div>

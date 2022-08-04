@@ -5,6 +5,7 @@ import Stats from "../components/stats";
 import Graph from "../components/graph";
 import Head from "next/head";
 import { useState, useEffect } from "react";
+import { AiFillGithub } from "react-icons/ai";
 
 export default function Players({ isConnected, players }) {
   const [data, setData] = useState([]);
@@ -83,6 +84,9 @@ export default function Players({ isConnected, players }) {
           )}
         </div>
       </main>
+      <footer className={styles.footer}>
+        <AiFillGithub size={40} />
+      </footer>
     </div>
   );
 }
