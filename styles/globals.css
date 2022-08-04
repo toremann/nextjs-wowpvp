@@ -1,6 +1,6 @@
 html,
 body {
-  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)) fixed, url(/bg.webp) fixed;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)) fixed, url('/images/bg.webp') fixed;
   /* background-image: url(/bg.webp); */
   background-size: cover;
   padding: 0;
