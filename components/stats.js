@@ -35,6 +35,10 @@ function Stats({ players, isConnected }) {
     return acc + obj.lossrbg;
   }, 0);
 
+  const totalChecked = players.reduce(function (acc, obj) {
+    return acc + obj.checked;
+  }, 0);
+
   const totalWinRatioRbg =
     (Number(totalWinsRbg) / (Number(totalWinsRbg) + Number(totalLossRbg))) *
     100;
@@ -87,6 +91,7 @@ function Stats({ players, isConnected }) {
         <br />
         <br />
         <b>Active characters:</b> {totalPlayers} <br />
+        <b>Checked by:</b> {totalChecked} people<br />
         <b>Updated:</b> {new Date(players[1].updatedAt).toLocaleString("en-GB")}
         <br />
         <b>Database:</b>{" "}

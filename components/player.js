@@ -61,7 +61,7 @@ function Player({ player }) {
           <h3>
             {player.player} - {player.realm} <br /> {classes[player.class]} -{" "}
             <b>ilvl:</b> {player.ilvl}
-          </h3>
+          </h3><br />
         </div>
         <div className={styles.card__icon}>
           <Image src={classIcons[player.class]} width={40} height={40} />
