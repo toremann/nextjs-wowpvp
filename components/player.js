@@ -17,17 +17,17 @@ function Player({ player }) {
   };
 
   const classIcons = {
-    1: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-warrior-vector.f346a16523efa8fc66ba0c72b3d8d9b5.png", //Warrior
-    2: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-paladin-vector.9665329a4454328f61097d121f0939df.png", //Paladin
-    3: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-hunter-vector.095639e31b058f024eaf9fa96758cfdb.png", //Hunter
-    4: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-rogue-vector.cc2ea8017b7df7c6d19f37640f627485.png", //Rogue
-    5: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-priest-vector.d7f94632cf32cb6d4e332549f7c8347a.png", //Priest
+    1: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-warrior-vector.f346a16523efa8fc66ba0c72b3d8d9b5.png", // Warrior
+    2: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-paladin-vector.9665329a4454328f61097d121f0939df.png", // Paladin
+    3: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-hunter-vector.095639e31b058f024eaf9fa96758cfdb.png", // Hunter
+    4: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-rogue-vector.cc2ea8017b7df7c6d19f37640f627485.png", // Rogue
+    5: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-priest-vector.d7f94632cf32cb6d4e332549f7c8347a.png", // Priest
     6: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
-    7: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png", //Shaman
+    7: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png", // Shaman
     8: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
-    9: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
+    9: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-warlock-vector.26da6762460b000b91d4d748d8274e35.png", // Warlock
     10: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-shaman-vector.d07d941c902b378020a1aa9b857dd5f8.png",
-    11: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-druid-vector.43960391b0b03a656707fe7b9873a526.png", //Druid
+    11: "https://assets.worldofwarcraft.com/static/components/GameIcon/GameIcon-class-druid-vector.43960391b0b03a656707fe7b9873a526.png", // Druid
   };
 
   const played2v2 = player.wins2v2 + player.loss2v2;
@@ -73,7 +73,7 @@ function Player({ player }) {
             <b>2v2:</b>
           </p>
           <p>
-            <b>Rating:</b> {player.rating2v2}
+            <b>Rating:</b> {player.currentrating2v2}
           </p>
           <p>
             <b>Wins</b> {player.wins2v2}
@@ -98,7 +98,7 @@ function Player({ player }) {
             <b>3v3:</b>
           </p>
           <p>
-            <b>Rating:</b> {player.rating3v3}
+            <b>Rating:</b> {player.currentrating3v3}
           </p>
           <p>
             <b>Wins</b> {player.wins3v3}
@@ -123,7 +123,7 @@ function Player({ player }) {
             <b>RBG:</b>
           </p>
           <p>
-            <b>Rating:</b> {player.ratingrbg}
+            <b>Rating:</b> {player.currentratingrbg}
           </p>
           <p>
             <b>Wins</b> {player.winsrbg}

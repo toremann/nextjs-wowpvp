@@ -39,6 +39,12 @@ function Stats({ players, isConnected }) {
     (Number(totalWinsRbg) / (Number(totalWinsRbg) + Number(totalLossRbg))) *
     100;
 
+  const checkNan2v2 = isNaN(totalWinRatio2v2);
+
+  const checkNan3v3 = isNaN(totalWinRatio3v3);
+
+  const checkNanRBG = isNaN(totalWinRatioRbg);
+
   return (
     <>
       <h3>TOTALS</h3>
@@ -48,19 +54,37 @@ function Stats({ players, isConnected }) {
         <b>Wins:</b> {totalWins2v2} <br />
         <b>Loss:</b> {totalLoss2v2} <br />
         <b>Games:</b> {totalWins2v2 + totalLoss2v2} <br />
-        <b>Ratio:</b> {totalWinRatio2v2.toFixed(0)}% <br />
+        <b>Ratio:</b>{" "}
+        {checkNan2v2 ? (
+          <text>0</text>
+        ) : (
+          <text>{totalWinRatio2v2.toFixed(0)}% </text>
+        )}
+        <br />
         <br />
         <b>TOTAL 3v3:</b> <br />
         <b>Wins:</b> {totalWins3v3} <br />
         <b>Loss:</b> {totalLoss3v3} <br />
         <b>Games:</b> {totalWins3v3 + totalLoss3v3} <br />
-        <b>Ratio:</b> {totalWinRatio3v3.toFixed(0)}% <br />
+        <b>Ratio:</b>{" "}
+        {checkNan3v3 ? (
+          <text>0</text>
+        ) : (
+          <text>{totalWinRatio3v3.toFixed(0)}% </text>
+        )}
+        <br />
         <br />
         <b>TOTAL RBG:</b> <br />
         <b>Wins:</b> {totalWinsRbg} <br />
         <b>Loss:</b> {totalLossRbg} <br />
         <b>Games:</b> {totalWinsRbg + totalLossRbg} <br />
-        <b>Ratio:</b> {totalWinRatioRbg.toFixed(0)}% <br />
+        <b>Ratio:</b>{" "}
+        {checkNanRBG ? (
+          <text>0</text>
+        ) : (
+          <text>{totalWinRatioRbg.toFixed(0)}% </text>
+        )}
+        <br />
         <br />
         <b>Active characters:</b> {totalPlayers} <br />
         <b>Updated:</b> {new Date(players[1].updatedAt).toLocaleString("en-GB")}
