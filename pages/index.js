@@ -70,7 +70,7 @@ export default function Players({ isConnected, players }) {
                   <div className={styles.card} key={index}>
                     <Player player={player} />
 
-                    <Graph player={player} index={index} data={data} />
+                    <Graph player={player} index={index} />
                   </div>
                 ))}
               </div>
