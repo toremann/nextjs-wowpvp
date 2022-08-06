@@ -73,7 +73,7 @@ function Player({ player }) {
             <b>2v2:</b>
           </p>
           <p>
-            <b>Rating:</b> {player.currentrating2v2}
+            <b>Rating:</b> {player.currentrating2v2} 
           </p>
           <p>
             <b>Wins</b> {player.wins2v2}
