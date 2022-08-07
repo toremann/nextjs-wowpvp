@@ -54,6 +54,10 @@ function Player({ player }) {
 
   const checkNanRBG = isNaN(winraterbg);
 
+  let [secondLast, last] = player.rating2v2.slice(-2);
+
+  var ratingChange2v2 = last.rating - secondLast.rating;
+
   return (
     <>
       <div className={styles.card__top}>
@@ -61,7 +65,8 @@ function Player({ player }) {
           <h3>
             {player.player} - {player.realm} <br /> {classes[player.class]} -{" "}
             <b>ilvl:</b> {player.ilvl}
-          </h3><br />
+          </h3>
+          <br />
         </div>
         <div className={styles.card__icon}>
           <Image src={classIcons[player.class]} width={40} height={40} />
@@ -73,7 +78,7 @@ function Player({ player }) {
             <b>2v2:</b>
           </p>
           <p>
-            <b>Rating:</b> {player.currentrating2v2} 
+            <b>Rating:</b> {player.currentrating2v2} {ratingChange2v2}
           </p>
           <p>
             <b>Wins</b> {player.wins2v2}
