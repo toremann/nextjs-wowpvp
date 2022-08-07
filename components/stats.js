@@ -64,8 +64,7 @@ function Stats({ players, isConnected }) {
         ) : (
           <text>{totalWinRatio2v2.toFixed(0)}% </text>
         )}
-        <br />
-        <br />
+        <hr />
         <b>TOTAL 3v3:</b> <br />
         <b>Wins:</b> {totalWins3v3} <br />
         <b>Loss:</b> {totalLoss3v3} <br />
@@ -76,8 +75,7 @@ function Stats({ players, isConnected }) {
         ) : (
           <text>{totalWinRatio3v3.toFixed(0)}% </text>
         )}
-        <br />
-        <br />
+        <hr />
         <b>TOTAL RBG:</b> <br />
         <b>Wins:</b> {totalWinsRbg} <br />
         <b>Loss:</b> {totalLossRbg} <br />
@@ -88,10 +86,10 @@ function Stats({ players, isConnected }) {
         ) : (
           <text>{totalWinRatioRbg.toFixed(0)}% </text>
         )}
-        <br />
-        <br />
+        <hr />
         <b>Active characters:</b> {totalPlayers} <br />
-        <b>Checked by:</b> {totalChecked} people<br />
+        <b>Checked by:</b> {totalChecked} people
+        <br />
         <b>Updated:</b> {new Date(players[1].updatedAt).toLocaleString("en-GB")}
         <br />
         <b>Database:</b>{" "}

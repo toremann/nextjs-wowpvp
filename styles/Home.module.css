@@ -166,6 +166,11 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
+.card__totals hr {
+  border-color: rgba(255, 255, 255, 0.2);
+
+}
+
 .card .stats {
   display: flex;
   justify-content: space-between;
@@ -235,6 +240,15 @@
   border-color: rgba(0, 0, 0, 0.4);
   border-width: thin;
   background: rgba(255, 255, 255, 0.2);
+}
+
+.graph__history:nth-child(even) {
+  background-color: rgb(192 192 192 / 20%);
+}
+
+.graph hr {
+ border-color: rgba(255, 255, 255, 0.2);
+
 }
 
 @media (max-width: 600px) {
