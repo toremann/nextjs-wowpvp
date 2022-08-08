@@ -39,6 +39,9 @@ function Graph({ player }) {
 
   // console.log('player:', player.player, 'last rating:', secondLast.rating, 'current rating:', last.rating, 'gain/loss', last.rating - secondLast.rating);
 
+  // This const controlls the maximum of rows mapped in history
+  const maxRows = 5;
+
   return (
     <>
       <button
@@ -57,12 +60,14 @@ function Graph({ player }) {
           <div>
             2v2 <br />
             {player.rating2v2
-              .slice(0)
+              .slice(Math.max(player.rating2v2.length - maxRows, 0))
               .reverse()
               .map((r2v2, index) => (
                 <div className={styles.graph__history} key={index}>
-                  Date: {new Date(r2v2.date).toDateString("en-GB")} Wins:{" "}
-                  {r2v2.wins} Loss: {r2v2.loss} Rating {r2v2.rating}
+                  <div>Date: {new Date(r2v2.date).toLocaleDateString("en-GB")}</div>
+                  <div style={{color: "rgb(141 255 132)"}}>Wins: {r2v2.wins}</div>
+                  <div style={{color: "rgb(255 57 43)"}}>Loss: {r2v2.loss}</div> 
+                  <div>Rating: {r2v2.rating}</div>
                 </div>
               ))}
           </div>
@@ -70,12 +75,14 @@ function Graph({ player }) {
           <div>
             3v3 <br />
             {player.rating3v3
-              .slice(0)
+              .slice(Math.max(player.rating3v3.length - maxRows, 0))
               .reverse()
               .map((r3v3, index) => (
                 <div className={styles.graph__history} key={index}>
-                  Date: {new Date(r3v3.date).toDateString("en-GB")} Wins:{" "}
-                  {r3v3.wins} Loss: {r3v3.loss} Rating {r3v3.rating}
+                  <div>Date: {new Date(r3v3.date).toLocaleDateString("en-GB")}</div>
+                  <div style={{color: "rgb(141 255 132)"}}>Wins: {r3v3.wins}</div>
+                  <div style={{color: "rgb(255 57 43)"}}>Loss: {r3v3.loss}</div>
+                  <div>Rating: {r3v3.rating}</div>
                 </div>
               ))}
           </div>
@@ -83,12 +90,14 @@ function Graph({ player }) {
           <div>
             RBG <br />
             {player.ratingrbg
-              .slice(0)
+              .slice(Math.max(player.ratingrbg.length - maxRows, 0))
               .reverse()
               .map((rrbg, index) => (
                 <div className={styles.graph__history} key={index}>
-                  Date: {new Date(rrbg.date).toDateString("en-GB")} Wins:{" "}
-                  {rrbg.wins} Loss: {rrbg.loss} Rating {rrbg.rating}
+                  <div>Date: {new Date(rrbg.date).toLocaleDateString("en-GB")}</div> 
+                  <div style={{color: "rgb(141 255 132)"}}>Wins: {rrbg.wins}</div>
+                  <div style={{color: "rgb(255 57 43)"}}>Loss: {rrbg.loss}</div>
+                  <div>Rating: {rrbg.rating}</div>
                 </div>
               ))}
           </div>

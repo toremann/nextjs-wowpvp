@@ -242,6 +242,14 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+.graph__history {
+  display: flex;
+}
+
+.graph__history div {
+  width: 25%;
+}
+
 .graph__history:nth-child(even) {
   background-color: rgb(192 192 192 / 20%);
 }
