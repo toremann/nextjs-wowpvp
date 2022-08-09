@@ -1,3 +1,7 @@
+## Char-update is needed to upload stats
+
+[Char-update](https://github.com/toremann/char-update) runs on node and saves data to MongoDB
+
 ## Example app using MongoDB
 
 [MongoDB](https://www.mongodb.com/) is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. This example will show you how to connect to and use MongoDB as your backend for your Next.js app.

@@ -81,7 +81,12 @@ export default function Players({ isConnected, players }) {
         </div>
       </main>
       <footer className={styles.footer}>
-        <AiFillGithub size={40} />
+        <a
+          href="https://github.com/toremann/nextjs-wowpvp"
+          rel="noopener noreferrer"
+        >
+          <AiFillGithub size={40} />
+        </a>
       </footer>
     </div>
   );
