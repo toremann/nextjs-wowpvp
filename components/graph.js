@@ -56,9 +56,9 @@ function Graph({ player }) {
           <div className={chartStyles.chartBox}>
             <LineChart chartData={chartData} />
           </div>
-          <hr />
-          <div>
-            2v2 <br />
+          
+          <div className={styles.graph__history__container}>
+            <h1>2v2</h1> <hr />
             {player.rating2v2
               .slice(Math.max(player.rating2v2.length - maxRows, 0))
               .reverse()
@@ -71,9 +71,9 @@ function Graph({ player }) {
                 </div>
               ))}
           </div>
-          <hr />
-          <div>
-            3v3 <br />
+          
+          <div className={styles.graph__history__container}>
+            <h1>3v3</h1> <hr />
             {player.rating3v3
               .slice(Math.max(player.rating3v3.length - maxRows, 0))
               .reverse()
@@ -86,9 +86,9 @@ function Graph({ player }) {
                 </div>
               ))}
           </div>
-          <hr />
-          <div>
-            RBG <br />
+          
+          <div className={styles.graph__history__container}>
+            <h1>RBG</h1> <hr />
             {player.ratingrbg
               .slice(Math.max(player.ratingrbg.length - maxRows, 0))
               .reverse()
